@@ -28,34 +28,34 @@
 
 ### Grade Calculator
 
-![Grade Calculator](screenshots/Grade%20Calculator%20Code.png)
+![Grade Calculator](Screenshots/Grade%20Calculator%20Code.png)
 
-![Output](screenshots/Grade%20Calculator%20Output.png)
+![Output](Screenshots/Grade%20Calculator%20Output.png)
 
 ### Login Validator
 
-![Login Validator](screenshots/Login%20Validator%20Code.png)
+![Login Validator](Screenshots/Login%20Validator%20Code.png)
 
-![Output](screenshots/Login%20Validator%20Output.png)
+![Output](Screenshots/Login%20Validator%20Output.png)
 
 ### ATM Menu
 
-![ATM Menu](screenshots/ATM%20Menu%20Code.png)
+![ATM Menu](Screenshots/ATM%20Menu%20Code.png)
 
-![ATM Menu refactored code](screenshots/ATM%20Menu%20Code%202.png)
+![ATM Menu refactored code](Screenshots/ATM%20Menu%20Code%202.png)
 
-![Output](screenshots/ATM%20Menu%20Output.png)
+![Output](Screenshots/ATM%20Menu%20Output.png)
 
 ### Password Strength Checker
 
-![Password Strength Checker](screenshots/Password%20Checker%20Code.png)
+![Password Strength Checker](Screenshots/Password%20Checker%20Code.png)
 
-![Output](screenshots/Password%20Checker%20Output.png)
+![Output](Screenshots/Password%20Checker%20Output.png)
 
 ### Frequency Counter
 
-![Frequency Counter](screenshots/Frequency%20Counter%20Code.png)
+![Frequency Counter](Screenshots/Frequency%20Counter%20Code.png)
 
-![Frequency Counter refactored code](screenshots/Frequency%20Counter%20Code%202.png)
+![Frequency Counter refactored code](Screenshots/Frequency%20Counter%20Code%202.png)
 
-![Output](screenshots/Frequency%20Counter%20Output.png)
+![Output](Screenshots/Frequency%20Counter%20Output.png)
