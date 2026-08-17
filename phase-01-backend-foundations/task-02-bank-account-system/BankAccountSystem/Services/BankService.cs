@@ -5,31 +5,50 @@ namespace task_02_bank_account_system.BankAccountSystem.Services
     public class BankService
     {
         public Dictionary<uint, BankAccount> Accounts { get; set; }
-        public Dictionary<Guid, Customer> Customers { get; set; }
-
-        public BankAccount CurrentAccount { get; private set; }
 
         public BankService()
         {
-            Accounts = new Dictionary<uint, BankAccount>();
+            Accounts = [];
         }
 
-        public void CreateAccount(string fullName, string email, string phone, decimal initialBalance, AccountType accountType)
+        public void CreateAccount(string fullName, string email, string phone, decimal initialBalance, int accountType)
         {
-            uint accountNumber = Accounts.Count > 0 ? Accounts.Keys.Max() + 1 : 100000;
+            uint accountNumber = Accounts.Count > 0 ? Accounts.Keys.Max() + 1 : 0;
             while (Accounts.ContainsKey(accountNumber))
                 accountNumber++;
 
-            var customer = CreateCustomer(fullName, email, phone);
-            var newAccount = new BankAccount(accountNumber, customer, initialBalance, accountType);
+            var customer = new Customer(fullName, email, phone);
+            var newAccount = new BankAccount(accountNumber, customer, initialBalance, (AccountType)accountType);
             Accounts.Add(accountNumber, newAccount);
-            Customers.Add(customer.Id, customer);
         }
 
-        private Customer CreateCustomer(string name, string email, string phoneNumber)
+        public BankAccount GetAccount(uint accountNumber)
         {
-            var newCustomer = new Customer(name, email, phoneNumber);
-            return newCustomer;
+            if (Accounts.TryGetValue(accountNumber, out var account))
+                return account;
+            throw new KeyNotFoundException("Account not found.");
         }
+
+        public void Deposit(uint accountNumber, decimal amount, string description)
+        {
+            var account = GetAccount(accountNumber);
+            account.Deposit(amount, description);
+        }
+
+        public void Withdraw(uint accountNumber, decimal amount, string description)
+        {
+            var account = GetAccount(accountNumber);
+            account.Withdraw(amount, description);
+        }
+
+        public void Transfer(uint fromAccountNumber, uint toAccountNumber, decimal amount, string description)
+        {
+            var fromAccount = GetAccount(fromAccountNumber);
+            var toAccount = GetAccount(toAccountNumber);
+            fromAccount.Withdraw(amount, $"Transfer to {toAccountNumber}: {description}");
+            toAccount.Deposit(amount, $"Transfer from {fromAccountNumber}: {description}");
+        }
+
+
     }
 }
