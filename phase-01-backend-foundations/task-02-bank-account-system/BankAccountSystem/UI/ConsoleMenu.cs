@@ -47,6 +47,10 @@ namespace task_02_bank_account_system.BankAccountSystem.UI
         {
             Console.Write("Please select an option: ");
             var input = Console.ReadLine();
+            Console.WriteLine();
+
+            input = input.Trim();
+
             switch (input)
             {
                 case "1":
@@ -180,6 +184,13 @@ namespace task_02_bank_account_system.BankAccountSystem.UI
             Console.Write("Enter account number: ");
             uint accountNumber = uint.Parse(Console.ReadLine());
             var account = bankService.GetAccount(accountNumber);
+
+            if(account.Transactions.Count == 0)
+            {
+                Console.WriteLine("No transactions yet");
+                return;
+            }
+
             var transactions = account.Transactions.OrderByDescending(t => t.CreatedAt).ToList();
 
             Console.WriteLine($"Transaction History for Account Number: {account.AccountNumber}");
@@ -199,6 +210,13 @@ namespace task_02_bank_account_system.BankAccountSystem.UI
         private void HandleViewAllAccounts()
         {
             var accounts = bankService.Accounts.Values.ToList();
+
+            if (accounts.Count() == 0)
+            {
+                Console.WriteLine("No Accounts");
+                return;
+            }
+
             Console.WriteLine("All Accounts:");
             foreach (var account in accounts)
             {

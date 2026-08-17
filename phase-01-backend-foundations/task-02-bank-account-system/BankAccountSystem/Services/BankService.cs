@@ -43,6 +43,9 @@ namespace task_02_bank_account_system.BankAccountSystem.Services
 
         public void Transfer(uint fromAccountNumber, uint toAccountNumber, decimal amount, string description)
         {
+            if (fromAccountNumber == toAccountNumber)
+                throw new Exception("Can't transfer to oneself");
+
             var fromAccount = GetAccount(fromAccountNumber);
             var toAccount = GetAccount(toAccountNumber);
             fromAccount.Withdraw(amount, $"Transfer to {toAccountNumber}: {description}");
