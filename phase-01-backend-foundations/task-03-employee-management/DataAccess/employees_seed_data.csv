@@ -1,0 +1,13 @@
+EmployeeId,FullName,Email,Department,Position,Salary,HireDate,IsActive
+EMP-001,Mohamed Ayman,mohamed@test.com,IT,Backend Developer,20000,2025-01-10,True
+EMP-002,Sara Adel,sara@test.com,HR,HR Specialist,12000,2024-05-15,True
+EMP-003,Ahmed Tarek,ahmed@test.com,IT,Junior Developer,9000,2026-01-01,True
+EMP-004,Omar Samir,omar@test.com,Sales,Sales Executive,11000,2023-11-20,True
+EMP-005,Mariam Hassan,mariam@test.com,Finance,Accountant,14000,2022-09-11,True
+EMP-006,Khaled Ali,khaled@test.com,IT,DevOps Trainee,10000,2026-02-01,True
+EMP-007,Nour Emad,nour@test.com,Marketing,Content Specialist,9500,2025-07-08,True
+EMP-008,Youssef Nabil,youssef@test.com,Sales,Sales Manager,18000,2021-03-17,False
+EMP-009,Dina Farouk,dina@test.com,HR,Recruiter,10500,2024-02-13,True
+EMP-010,Hady Mahmoud,hady@test.com,IT,QA Engineer,13000,2025-10-01,True
+EMP-011,Salma Taha,salma@test.com,Finance,Finance Manager,26000,2020-12-12,True
+EMP-012,Ali Mostafa,ali@test.com,Support,Support Agent,8000,2026-03-05,True
