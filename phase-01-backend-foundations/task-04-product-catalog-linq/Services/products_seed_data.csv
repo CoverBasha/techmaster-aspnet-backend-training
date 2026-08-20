@@ -1,0 +1,26 @@
+Id,Name,Category,Price,Stock,Created,Available,Supplier
+1,Laptop Pro 14,Electronics,45000,5,2026-01-10,True,TechSupplier
+2,Wireless Mouse,Electronics,650,50,2026-02-01,True,TechSupplier
+3,Office Chair,Furniture,3500,10,2025-12-15,True,HomeSupplier
+4,Standing Desk,Furniture,8000,3,2026-03-05,True,HomeSupplier
+5,Notebook Pack,Stationery,120,100,2026-01-20,True,PaperSupplier
+6,Pen Set,Stationery,75,200,2026-01-25,True,PaperSupplier
+7,Gaming Keyboard,Electronics,2500,7,2026-02-12,True,TechSupplier
+8,Monitor 27 inch,Electronics,9000,4,2026-02-20,True,TechSupplier
+9,Desk Lamp,Furniture,650,0,2025-11-01,False,HomeSupplier
+10,Backpack,Accessories,1200,15,2026-03-10,True,BagSupplier
+11,USB-C Hub,Electronics,1250,12,2026-04-01,True,TechSupplier
+12,Whiteboard Markers,Stationery,95,80,2026-02-15,True,PaperSupplier
+13,Ergonomic Mouse Pad,Accessories,350,25,2026-05-01,True,BagSupplier
+14,Meeting Table,Furniture,12500,2,2025-10-20,True,HomeSupplier
+15,HD Webcam,Electronics,1800,6,2026-04-17,True,TechSupplier
+16,Printer Paper Box,Stationery,450,30,2026-02-28,True,PaperSupplier
+17,Laptop Stand,Accessories,950,9,2026-03-30,True,BagSupplier
+18,Network Cable 5m,Electronics,150,60,2026-01-05,True,TechSupplier
+19,Storage Cabinet,Furniture,6000,1,2025-09-10,True,HomeSupplier
+20,Sticky Notes,Stationery,60,0,2026-05-10,False,PaperSupplier
+21,Noise Cancelling Headset,Electronics,5200,4,2026-03-22,True,TechSupplier
+22,Desk Organizer,Accessories,300,40,2026-06-01,True,BagSupplier
+23,Projector,Electronics,22000,2,2026-04-28,True,TechSupplier
+24,Office Sofa,Furniture,15500,1,2025-08-18,True,HomeSupplier
+25,Calculator,Stationery,250,35,2026-01-12,True,PaperSupplier
