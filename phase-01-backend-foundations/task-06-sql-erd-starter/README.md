@@ -83,12 +83,9 @@ The following queries are required for this task:
 9. Count how many books each author has.
 10. Select top 5 most borrowed books.
 
-See `library_queries.sql` for the SQL implementations.
+See `Queries.sql` for the SQL implementations.
 
 ## Deliverables
 
 - ERD diagram
-- Table and field definitions
-- Primary keys and foreign keys
-- Relationship explanation
 - Required SQL queries
