@@ -16,7 +16,7 @@ namespace Task_03_Employee_Management_Console_App.Services
             name = name.ToLower();
 
             if (string.IsNullOrEmpty(name))
-                throw new ArgumentException("Full name cannot be empty");
+                throw new ArgumentException("Fullname cannot be empty");
 
             var employees = Data.Employees.Values.Where(e => e.FullName.ToLower().Contains(name.ToLower()));
             if (employees == null)

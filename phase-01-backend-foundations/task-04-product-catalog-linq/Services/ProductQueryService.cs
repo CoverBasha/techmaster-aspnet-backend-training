@@ -41,6 +41,8 @@ namespace task_04_product_catalog_linq.Services
 
         public static List<Product> GetProductsByPriceRange(decimal minPrice, decimal maxPrice)
         {
+            if (minPrice < 0 || maxPrice < 0 || maxPrice < minPrice)
+                throw new ArgumentOutOfRangeException("prices can't be negative and max price can't be smaller than min price");
             return _products.Where(p => p.Price >= minPrice && p.Price <= maxPrice).ToList();
         }
 

@@ -5,7 +5,7 @@ public class MainClass
 {
     public static void Main(string[] args)
     {
-        ConsoleMenu menu = new ConsoleMenu(new BankService());
+        ConsoleMenu menu = new(new BankService());
 
         menu.run();
     }

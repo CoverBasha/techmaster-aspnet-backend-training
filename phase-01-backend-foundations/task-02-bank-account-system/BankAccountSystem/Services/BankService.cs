@@ -13,7 +13,7 @@ namespace task_02_bank_account_system.BankAccountSystem.Services
 
         public void CreateAccount(string fullName, string email, string phone, decimal initialBalance, int accountType)
         {
-            uint accountNumber = Accounts.Count > 0 ? Accounts.Keys.Max() + 1 : 0;
+            uint accountNumber = Accounts.Count > 0 ? Accounts.Keys.Max() + 1 : 1;
             while (Accounts.ContainsKey(accountNumber))
                 accountNumber++;
 
