@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiRoutingDrills", "ApiRoutingDrills.csproj", "{73486C2B-ADFD-47BF-9891-BF3B04767A0C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73486C2B-ADFD-47BF-9891-BF3B04767A0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73486C2B-ADFD-47BF-9891-BF3B04767A0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73486C2B-ADFD-47BF-9891-BF3B04767A0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73486C2B-ADFD-47BF-9891-BF3B04767A0C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C8FE8118-506D-4B0C-B3A9-6A31B64A7567}
+	EndGlobalSection
+EndGlobal
