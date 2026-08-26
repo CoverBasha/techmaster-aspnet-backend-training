@@ -7,10 +7,10 @@ namespace ApiRoutingDrills.Controllers
     [ApiController]
     public class EchoController : ControllerBase
     {
-        [HttpGet]
+        [HttpGet("{name}")]
         public IActionResult Echo(string name)
         {
-            return Ok(name);
+            return Ok(new { name });
         }
     }
 }
