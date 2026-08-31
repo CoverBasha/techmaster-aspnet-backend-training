@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task-02-student-management-api", "task-02-student-management-api.csproj", "{A12135E2-3A4D-43B9-9175-778ABAFC5BDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A12135E2-3A4D-43B9-9175-778ABAFC5BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A12135E2-3A4D-43B9-9175-778ABAFC5BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A12135E2-3A4D-43B9-9175-778ABAFC5BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A12135E2-3A4D-43B9-9175-778ABAFC5BDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FFE0F768-FE6A-4E7E-9C98-5623F6E2889B}
+	EndGlobalSection
+EndGlobal
