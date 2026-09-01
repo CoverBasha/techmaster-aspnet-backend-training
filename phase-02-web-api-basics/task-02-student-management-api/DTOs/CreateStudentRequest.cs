@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace task_02_student_management_api.Models.DTOs
+namespace task_02_student_management_api.DTOs
 {
-    public class UpdateStudentRequest
+    public class CreateStudentRequest
     {
         [Required]
         public string Fullname { get; set; }

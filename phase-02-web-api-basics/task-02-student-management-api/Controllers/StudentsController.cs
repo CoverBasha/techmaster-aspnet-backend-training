@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using task_02_student_management_api.Models.DTOs;
+using task_02_student_management_api.DTOs;
 using task_02_student_management_api.Services;
 
 namespace task_02_student_management_api.Controllers
@@ -8,17 +8,17 @@ namespace task_02_student_management_api.Controllers
     [ApiController]
     public class StudentsController : ControllerBase
     {
-        private readonly StudentsService studentsService;
+        private readonly IStudentsService studentsService;
 
-        public StudentsController(StudentsService studentsService)
+        public StudentsController(IStudentsService studentsService)
         {
             this.studentsService = studentsService;
         }
 
         [HttpGet]
-        public IActionResult GetAllStudents()
+        public IActionResult GetAllStudents([FromQuery]int? pageNumber, [FromQuery]int? pageSize)
         {
-            var response = studentsService.GetStudents();
+            var response = studentsService.GetStudents(pageNumber, pageSize);
             return Ok(response.Result);
         }
 
@@ -58,27 +58,43 @@ namespace task_02_student_management_api.Controllers
         }
 
         [HttpPatch("{id:guid}")]
-        public IActionResult ChangeStudentStatus([FromBody] UpdateStudentStatusRequest dto)
+        public IActionResult ChangeStudentStatus(Guid id, [FromBody] UpdateStudentStatusRequest dto)
         {
-            return Ok();
+            var response = studentsService.UpdateStudentStatus(id, dto);
+            if (response.Status == Status.NotFound)
+                return NotFound(response.Message);
+
+            return Ok(response.Result);
         }
 
         [HttpDelete("{id:guid}")]
         public IActionResult DeleteStudent([FromRoute] Guid id)
         {
-            return Ok();
+            var response = studentsService.DeleteStudent(id);
+            if (response.Status == Status.NotFound)
+                return NotFound(response.Message);
+
+            return NoContent();
         }
 
         [HttpGet("by-track/{trackName}")]
-        public IActionResult StudentsByTrack([FromRoute] string trackName)
+        public IActionResult StudentsByTrack([FromRoute] string trackName, [FromQuery] int? pageNumber, [FromQuery] int? pageSize)
         {
-            return Ok();
+            var response = studentsService.GetByTrack(trackName, pageNumber, pageSize);
+
+            if (response.Status == Status.NotFound)
+                return NotFound(response.Message);
+            if(response.Status == Status.Failure)
+                return BadRequest(response.Message);
+
+            return Ok(response.Result);
         }
 
         [HttpGet("stats")]
         public IActionResult StudentsStats()
         {
-            return Ok();
+            var response = studentsService.StudentStats();
+            return Ok(response.Result);
         }
     }
 }

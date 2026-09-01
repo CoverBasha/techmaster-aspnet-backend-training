@@ -1,8 +1,8 @@
-﻿namespace task_02_student_management_api.Models.DTOs
+﻿namespace task_02_student_management_api.DTOs
 {
     public class PagedResultResponse
     {
-        public StudentResponse StudentDto { get; set; }
+        public IEnumerable<StudentResponse> Students { get; set; }
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
         public int TotalCount { get; set; }

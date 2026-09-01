@@ -1,4 +1,4 @@
-﻿namespace task_02_student_management_api.Models.DTOs
+﻿namespace task_02_student_management_api.DTOs
 {
     public class StudentResponse
     {
