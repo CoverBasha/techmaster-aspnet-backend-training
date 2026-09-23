@@ -2,8 +2,15 @@
 {
     public class ServiceResponse<T>
     {
-        public bool Success { get; set; } = true;
+        public Status Status { get; set; } = Status.Success;
         public string Message { get; set; } = string.Empty;
         public T Data { get; set; }
+    }
+
+    public enum Status
+    {
+        Success,
+        Error,
+        NotFound
     }
 }

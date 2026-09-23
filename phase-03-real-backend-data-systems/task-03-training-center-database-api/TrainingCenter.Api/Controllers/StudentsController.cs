@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using TrainingCenter.Api.DTOs.Students;
+using TrainingCenter.Api.Services;
 
 namespace TrainingCenter.Api.Controllers
 {
@@ -7,28 +8,58 @@ namespace TrainingCenter.Api.Controllers
     [ApiController]
     public class StudentsController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetAllStudents()
+        private readonly StudentService studentService;
+
+        public StudentsController(StudentService studentService)
         {
-            return Ok();
+            this.studentService = studentService;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllStudentsAsync(
+            [FromQuery] string? keyword,
+            [FromQuery] bool? isActive,
+            [FromQuery] int?pageNumber,
+            [FromQuery]int?pageSize)
+        {
+            var response = await studentService.GetAllStudentsAsync(keyword, isActive, pageNumber, pageSize);
+
+            return Ok(response.Data);
         }
 
         [HttpGet("{id:guid}")]
-        public IActionResult GetStudentById(Guid id)
+        public async Task<IActionResult> GetStudentByIdAsync(Guid id)
         {
-            return Ok();
+            var response = await studentService.GetStudentByIdAsync(id);
+
+            if (response.Status == Status.NotFound)
+                return NotFound(response.Message);
+
+            return Ok(response.Data);
         }
 
         [HttpPost]
-        public IActionResult CreateStudent()
+        public async Task<IActionResult> CreateStudentAsync([FromBody]CreateStudentRequest createStudentRequest)
         {
+            var response = await studentService.CreateStudentAsync(createStudentRequest);
+
+            if (response.Status == Status.Error)
+                return BadRequest(response.Message);
+
             return Ok();
         }
 
         [HttpPut("{id:guid}")]
-        public IActionResult UpdateStudent(Guid id)
+        public async Task<IActionResult> UpdateStudent(Guid id,[FromBody]UpdateStudentRequest updateStudentRequest)
         {
-            return Ok();
+            var response = await studentService.UpdateStudentAsync(id, updateStudentRequest);
+            
+            if (response.Status == Status.NotFound)
+                return NotFound(response.Message);
+            if (response.Status == Status.Error)
+                return BadRequest(response.Message);
+
+            return Ok(response.Data);
         }
 
         [HttpDelete("{id:guid}")]
