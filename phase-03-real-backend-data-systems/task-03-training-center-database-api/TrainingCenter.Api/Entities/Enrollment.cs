@@ -9,7 +9,7 @@
 
         public DateTime EnrollmentDate { get; set; }
 
-        public EnrollmentStatus Status { get; set; }
+        public EnrollmentStatus EnrollmentStatus { get; set; }
 
         public byte ProgressPercentage { get; set; }
 

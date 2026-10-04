@@ -28,7 +28,7 @@ namespace TrainingCenter.Api.Controllers
         }
 
         [HttpGet("{id:guid}")]
-        public async Task<IActionResult> GetStudentByIdAsync(Guid id)
+        public async Task<IActionResult> GetStudentByIdAsync([FromRoute]Guid id)
         {
             var response = await studentService.GetStudentByIdAsync(id);
 
@@ -46,11 +46,11 @@ namespace TrainingCenter.Api.Controllers
             if (response.Status == Status.Error)
                 return BadRequest(response.Message);
 
-            return Ok();
+            return Ok(response.Data);
         }
 
         [HttpPut("{id:guid}")]
-        public async Task<IActionResult> UpdateStudent(Guid id,[FromBody]UpdateStudentRequest updateStudentRequest)
+        public async Task<IActionResult> UpdateStudent([FromRoute] Guid id,[FromBody]UpdateStudentRequest updateStudentRequest)
         {
             var response = await studentService.UpdateStudentAsync(id, updateStudentRequest);
             
@@ -63,13 +63,13 @@ namespace TrainingCenter.Api.Controllers
         }
 
         [HttpDelete("{id:guid}")]
-        public IActionResult DeleteStudent(Guid id)
+        public IActionResult DeleteStudent([FromRoute] Guid id)
         {
             return Ok();
         }
 
         [HttpGet("{id:guid}/enrollments")]
-        public IActionResult GetStudentEnrollments(Guid id)
+        public IActionResult GetStudentEnrollments([FromRoute] Guid id)
         {
             return Ok();
         }

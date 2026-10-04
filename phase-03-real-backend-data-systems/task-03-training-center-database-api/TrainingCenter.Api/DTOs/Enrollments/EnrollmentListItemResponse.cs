@@ -13,7 +13,7 @@ namespace TrainingCenter.Api.DTOs.Enrollments
         public string TrackTitle { get; set; } = null!;
 
         public DateTime EnrollmentDate { get; set; }
-        public EnrollmentStatus Status { get; set; }
+        public EnrollmentStatus EnrollmentStatus { get; set; }
         public byte ProgressPercentage { get; set; }
         public float? FinalResult { get; set; }
     }

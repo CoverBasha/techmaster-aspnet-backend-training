@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace TrainingCenter.Api.Entities
+﻿namespace TrainingCenter.Api.Entities
 {
     public class TrainingTrack
     {

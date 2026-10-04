@@ -15,7 +15,8 @@ namespace TrainingCenter.Api.Services
             this.context = context;
         }
 
-        public async Task<ServiceResponse<List<StudentListItemResponse>>> GetAllStudentsAsync(string? keyword, bool? isActive, int? pageNumber, int? pageSize)
+        public async Task<ServiceResponse<List<StudentListItemResponse>>> GetAllStudentsAsync(
+            string? keyword, bool? isActive, int? pageNumber, int? pageSize)
         {
             pageNumber = pageNumber == null || pageNumber < 1 ? 1 : pageNumber;
             pageSize = pageSize == null || pageSize < 1 ? 10 : pageSize;
@@ -82,7 +83,7 @@ namespace TrainingCenter.Api.Services
                     EnrollmentDate = e.EnrollmentDate,
                     TrainingTrackId = e.TrainingTrackId,
                     TrackTitle = e.TrainingTrack.Title,
-                    Status = e.Status,
+                    EnrollmentStatus = e.EnrollmentStatus,
                     ProgressPercentage = e.ProgressPercentage,
                     FinalResult = e.FinalResult
                 }).ToListAsync();
@@ -131,7 +132,8 @@ namespace TrainingCenter.Api.Services
             return new() { Data = studentDetailsResponse, Message = "Student created successfully." };
         }
 
-        public async Task<ServiceResponse<StudentDetailsResponse>> UpdateStudentAsync(Guid id, UpdateStudentRequest updateStudentRequest)
+        public async Task<ServiceResponse<StudentDetailsResponse>> UpdateStudentAsync(Guid id, 
+            UpdateStudentRequest updateStudentRequest)
         {
             var student = await context.Students.FindAsync(id);
             

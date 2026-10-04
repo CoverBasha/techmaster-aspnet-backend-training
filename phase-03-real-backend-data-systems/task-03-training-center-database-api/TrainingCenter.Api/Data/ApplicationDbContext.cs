@@ -97,7 +97,11 @@ namespace TrainingCenter.Api.Data
         public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
         {
             var entries = ChangeTracker.Entries()
-                .Where(e => e.Entity is Student || e.Entity is Instructor || e.Entity is TrainingTrack || e.Entity is Enrollment || e.Entity is Payment)
+                .Where(e => e.Entity is Student 
+                || e.Entity is Instructor 
+                || e.Entity is TrainingTrack 
+                || e.Entity is Enrollment 
+                || e.Entity is Payment)
                 .ToList();
             foreach (var entry in entries)
             {

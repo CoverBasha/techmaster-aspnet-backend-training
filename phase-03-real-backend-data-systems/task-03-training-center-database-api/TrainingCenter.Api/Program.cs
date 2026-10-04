@@ -12,6 +12,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<StudentService>();
+builder.Services.AddScoped<InstructorService>();
+builder.Services.AddScoped<TrackService>();
+builder.Services.AddScoped<EnrollmentService>();
+builder.Services.AddScoped<PaymentService>();
+
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

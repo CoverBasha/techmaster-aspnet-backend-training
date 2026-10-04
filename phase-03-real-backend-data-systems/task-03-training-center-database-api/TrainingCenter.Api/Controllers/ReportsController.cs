@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using TrainingCenter.Api.Services;
 
 namespace TrainingCenter.Api.Controllers
 {
@@ -7,22 +9,33 @@ namespace TrainingCenter.Api.Controllers
     [ApiController]
     public class ReportsController : ControllerBase
     {
+        private readonly ReportService reportService;
+
+        public ReportsController(ReportService reportService)
+        {
+            this.reportService = reportService;
+        }
+
+
+
         [HttpGet("dashboard-summary")]
-        public IActionResult GetDashboardSummary()
+        public async Task<IActionResult> GetDashboardSummary()
         {
             return Ok();
         }
 
         [HttpGet("unpaid-enrollments")]
-        public IActionResult GetUnpaidEnrollments()
+        public async Task<IActionResult> GetUnpaidEnrollments()
         {
-            return Ok();
+            var response = await reportService.GetUnpaidOrPartiallyPaidEnrollmentsAsync();
+            return Ok(response.Data);
         }
 
         [HttpGet("track-capacity")]
-        public IActionResult GetTrackCapacity()
+        public async Task<IActionResult> GetTrackCapacity()
         {
-            return Ok();
+            var response = await reportService.GetCapacityPerTrack();
+            return Ok(response.Data);
         }
 
         [HttpGet("revenue-summary")]

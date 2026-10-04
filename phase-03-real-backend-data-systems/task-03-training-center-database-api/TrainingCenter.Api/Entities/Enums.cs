@@ -20,6 +20,7 @@
     {
         Pending,
         Paid,
+        PartiallyPaid,
         Failed,
         Refunded
     }

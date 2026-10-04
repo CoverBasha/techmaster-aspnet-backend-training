@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using TrainingCenter.Api.DTOs.Payments;
+using TrainingCenter.Api.Entities;
+using TrainingCenter.Api.Services;
 
 namespace TrainingCenter.Api.Controllers
 {
@@ -7,22 +9,48 @@ namespace TrainingCenter.Api.Controllers
     [ApiController]
     public class PaymentsController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetAllPayments()
+        private readonly PaymentService paymentService;
+
+        public PaymentsController(PaymentService paymentService)
         {
-            return Ok();
+            this.paymentService = paymentService;
         }
 
-        [HttpPost]
-        public IActionResult CreatePayment()
+        [HttpGet]
+        public async Task<IActionResult> GetAllPayments(
+            [FromQuery] DateTime? StartDate,
+            [FromQuery] DateTime? EndDate,
+            [FromQuery] PaymentStatus? paymentStatus)
         {
-            return Ok();
+            var response = await paymentService.GetAllPaymentsAsync(StartDate, EndDate, paymentStatus);
+
+            return Ok(response.Data);
+        }
+
+        [HttpPost("{enrollmentId:guid}")]
+        public async Task<IActionResult> MakePayment([FromRoute] Guid enrollmentId, [FromBody] MakePaymentRequest paymentRequest)
+        {
+            var response = await paymentService.MakePaymentAsync(enrollmentId, paymentRequest);
+
+            if(response.Status == Status.NotFound)
+                return NotFound(response.Message);
+            if (response.Status == Status.Error)
+                return BadRequest(response.Message);
+
+            return Ok(response.Data);
         }
 
         [HttpPut("{id:guid}/status")]
-        public IActionResult UpdatePaymentStatus(Guid id)
+        public async Task<IActionResult> UpdatePaymentStatus(Guid id, UpdatePaymentStatusRequest updatePaymentStatusRequest)
         {
-            return Ok();
+            var response = await paymentService.UpdatePaymentStatusAsync(id, updatePaymentStatusRequest);
+
+            if (response.Status == Status.NotFound)
+                return NotFound(response.Message);
+            if (response.Status == Status.Error)
+                return BadRequest(response.Message);
+
+            return Ok(response.Data);
         }
     }
 }

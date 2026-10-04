@@ -2,9 +2,8 @@
 
 namespace TrainingCenter.Api.DTOs.Tracks
 {
-    public class TrackDetailsResponse
+    public class UpdateTrackRequest
     {
-        public Guid TrainingTrackId { get; set; }
         public string Title { get; set; } = string.Empty;
         public string Code { get; set; } = string.Empty;
         public string? Description { get; set; }
@@ -14,6 +13,5 @@ namespace TrainingCenter.Api.DTOs.Tracks
         public DateTime EndDate { get; set; }
         public TrackStatus Status { get; set; }
 
-        public Guid InstructorId { get; set; }
     }
 }
